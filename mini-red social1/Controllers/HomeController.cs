@@ -21,11 +21,24 @@ public class HomeController : Controller
     public IActionResult Privacy()
     {
         return View();
+    
+    }
+
+    public IActionResult Registro()
+    {
+        return View();
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
+    public IActionResult Error(int? id)
     {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        // El código llega desde UseStatusCodePagesWithReExecute para mostrar
+        // el mensaje correcto cuando la ruta solicitada no existe
+        var statusCode = id ?? StatusCodes.Status500InternalServerError;
+        Response.StatusCode = statusCode;
+        ViewData["StatusCode"] = statusCode;
+        ViewData["RequestedPath"] = HttpContext.Request.Path;
+
+        return View("~/Views/Home/error.cshtml");
     }
 }
