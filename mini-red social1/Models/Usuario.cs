@@ -15,6 +15,8 @@ public class Usuario
     public string contrasena_hash { get; set; }
 
     public enum estado { Activo, Inactivo, Pendiente }
+    
+    public estado status { get; set; }
 
     public string visibilidad { get; set; }
     
