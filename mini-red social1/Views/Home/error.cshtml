@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Página no encontrada";
+    var statusCode = ViewData["StatusCode"] as int? ?? 404;
+    var requestedPath = ViewData["RequestedPath"]?.ToString();
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-12 col-md-8 col-lg-6">
+        <div class="card border-0 shadow-sm text-center">
+            <div class="card-body p-5">
+                <div class="display-1 fw-bold text-primary">@statusCode</div>
+                <h1 class="h3 mt-3">Ups, no encontramos esa página</h1>
+                <p class="text-muted">
+                    Puede que la dirección esté escrita incorrectamente o que la página
+                    ya no exista.
+                </p>
+
+                @if (!string.IsNullOrWhiteSpace(requestedPath))
+                {
+                    <p class="small text-muted">Dirección solicitada: <code>@requestedPath</code></p>
+                }
+
+                <a class="btn btn-primary mt-3" asp-controller="Home" asp-action="Index">
+                    Volver al inicio
+                </a>
+                
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
