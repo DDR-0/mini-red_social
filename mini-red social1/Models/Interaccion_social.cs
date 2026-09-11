@@ -20,4 +20,15 @@ public class Interaccion_social
     
     public nivel_privacidad NivelPrivacidad { get; set; }
     
+    public DateTime horario_inicio { get; set; }
+    public string horario_inicio_en => horario_inicio.ToString("HH:mm:ss");
+    
+    public DateTime horario_fin { get; set; }
+    public string horario_fin_en => horario_fin.ToString("HH:mm:ss");
+    
+    public DateTime creado_en { get; set; }
+    
+    public DateTime modificado_en { get; set; }
+    
+    public DateTime borrado_en { get; set; }
 }

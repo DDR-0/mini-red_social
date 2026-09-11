@@ -20,11 +20,11 @@ public class Usuario
 
     public string visibilidad { get; set; }
     
-    public DateTime creacion { get; set; }
+    public DateTime creado_en { get; set; }
 
-    public DateTime modificacion { get; set; }
+    public DateTime modificado_en { get; set; }
 
-    public DateTime borrado { get; set; }
+    public DateTime borrado_en { get; set; }
 
 
 }
