@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 namespace mini_red_social1.Models;
 
 [Index(nameof(nombre), IsUnique = true)]
 public class Usuario
-{
+{   [Key]
     public int id { get; set; }
     
     public int rol_id { get; set; }
