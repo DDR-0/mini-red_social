@@ -4,18 +4,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace mini_red_social1.Models;
 
 public class Interaccion_social
-{   [Key]
+{
+    [Key]
     public int id { get; set; }
     
-    public int id_tipo_interaccion { get; set; }
-
-    [ForeignKey(nameof(id_tipo_interaccion))] public Tipo_Interaccion interaccion_id { get; set; } = null!;
+    public int interaccion_id { get; set; }
+    [ForeignKey(nameof(interaccion_id))] public Tipo_Interaccion id_interaccion { get; set; } = null!;
     
     public int id_usuario { get; set; }
     
     public string titulo  { get; set; }
     
-    public string descripcion { get; set; }
+    public string? descripcion { get; set; }
 
     public enum estado_actual {borrador, pendiente, en_progreso, resuelto, cancelado, escalado}
     
