@@ -1,10 +1,15 @@
-﻿namespace mini_red_social1.Models;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace mini_red_social1.Models;
 
 public class Interaccion_social
-{
+{   [Key]
     public int id { get; set; }
     
     public int id_tipo_interaccion { get; set; }
+
+    [ForeignKey(nameof(id_tipo_interaccion))] public Tipo_Interaccion interaccion_id { get; set; } = null!;
     
     public int id_usuario { get; set; }
     

@@ -1,12 +1,14 @@
-﻿namespace mini_red_social1.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace mini_red_social1.Models;
 
 public class Tipo_Interaccion
-{
+{   [Key]
     public int id { get; set; }
 
     public string nombre { get; set; }
 
-    public string descripcion { get; set; }
+    public string? descripcion { get; set; }
     
     public bool requiere_recurso  { get; set; }
     
