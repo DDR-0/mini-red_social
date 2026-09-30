@@ -7,7 +7,7 @@ namespace mini_red_social1.Models;
 [Index(nameof(nombre), IsUnique = true)]
 public class Usuario
 {   [Key]
-    public int id { get; set; }
+    public int user_id { get; set; }
     
     public int rol_id { get; set; }
     [ForeignKey(nameof(rol_id))] public Roles role { get; set; } = null!;

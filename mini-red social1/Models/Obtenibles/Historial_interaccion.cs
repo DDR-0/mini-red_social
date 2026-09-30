@@ -5,7 +5,7 @@ namespace mini_red_social1.Models;
 
 public class Historial_interaccion
 {   [Key]
-    public int id { get; set; }
+    public int historial_id { get; set; }
 
     public int interaccion_id { get; set; }
     [ForeignKey(nameof(interaccion_id))] public Tipo_Interaccion id_interaccion { get; set; } = null!;

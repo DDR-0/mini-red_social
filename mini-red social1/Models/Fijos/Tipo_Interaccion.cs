@@ -4,7 +4,7 @@ namespace mini_red_social1.Models;
 
 public class Tipo_Interaccion
 {   [Key]
-    public int id { get; set; }
+    public int tipo_interaccion_id { get; set; }
 
     public string nombre { get; set; }
 

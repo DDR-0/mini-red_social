@@ -4,7 +4,7 @@ namespace mini_red_social1.Models;
 
 public class Recurso
 {   [Key]
-    public int id { get; set; }
+    public int recurso_id { get; set; }
     
     public string nombre { get; set; }
 

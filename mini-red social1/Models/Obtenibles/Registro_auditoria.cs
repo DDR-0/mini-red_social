@@ -6,7 +6,7 @@ namespace mini_red_social1.Models;
 
 public class Registro_auditoria
 {   [Key]
-    public int id { get; set; }
+    public int auditlog_id { get; set; }
     
     public int id_usuario { get; set; }
     [ForeignKey(nameof(id_usuario))] public Usuario id_user { get; set; } = null!;

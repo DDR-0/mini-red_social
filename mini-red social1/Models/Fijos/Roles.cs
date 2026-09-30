@@ -5,7 +5,7 @@ namespace mini_red_social1.Models;
 
 public class Roles
 {   [Key]
-    public int id { get; set; }
+    public int roles_id { get; set; }
 
     public string nombre { get; set; }
     

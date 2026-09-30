@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 public class Snapshot_diaria
 {   [Key]
-    public int id { get; set; }
+    public int snapshot_id { get; set; }
     
     public DateTime fecha { get; set; }
     
