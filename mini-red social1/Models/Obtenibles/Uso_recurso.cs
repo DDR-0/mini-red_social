@@ -6,7 +6,7 @@ namespace mini_red_social1.Models;
 public class Uso_recurso
 {   
     [Key]
-    int uso_recurso_id { get; set; }
+    public int uso_recurso_id { get; set; }
     
     public int interaccion_id { get; set; }
     [ForeignKey(nameof(interaccion_id))] public Interaccion_social InteraccionSocial { get; set; } = null!;

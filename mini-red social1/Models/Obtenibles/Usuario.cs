@@ -22,8 +22,8 @@ public class Usuario
 
     public string contrasena_hash { get; set; }
 
-    public enum estado { Activo, Inactivo, Pendiente }
-    public estado status { get; set; }
+    public enum EstadoUsuario { Activo, Inactivo, Pendiente }
+    public EstadoUsuario estado_usuario { get; set; }
 
     public enum visibilidad { publico, privado }
     public visibilidad visiblity { get; set; }
@@ -31,8 +31,8 @@ public class Usuario
     public DateTime creado_en { get; set; }
 
     public DateTime modificado_en { get; set; }
-
-    public enum usuario_estado {Activo, Inactivo, Pendiente  }
-    public usuario_estado Estado  { get; set; }
+    
+    public enum EstadoCuenta { Activa, Suspendida }
+    public EstadoCuenta estado_cuenta { get; set; }
     
 }
