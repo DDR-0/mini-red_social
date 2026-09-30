@@ -8,7 +8,7 @@ public class Historial_interaccion
     public int historial_id { get; set; }
 
     public int interaccion_id { get; set; }
-    [ForeignKey(nameof(interaccion_id))] public Tipo_Interaccion id_interaccion { get; set; } = null!;
+    [ForeignKey(nameof(interaccion_id))] public Interaccion_social id_interaccion { get; set; } = null!;
 
     public int cambio_por_usuario { get; set; }
     [ForeignKey(nameof(cambio_por_usuario))] public Usuario usuario_id { get; set; } = null!;

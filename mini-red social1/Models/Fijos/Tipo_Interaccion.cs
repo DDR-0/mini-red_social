@@ -18,5 +18,5 @@ public class Tipo_Interaccion
     
     public DateTime modificado_en { get; set; }
     
-    public DateTime borrado_en { get; set; }
+    public DateTime? borrado_en { get; set; }
 }

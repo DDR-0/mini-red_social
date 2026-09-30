@@ -1,10 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace mini_red_social1.Models;
 
 public class Uso_recurso
-{
-    public int uso_recurso_id { get; set; }
+{   
+    [Key]
+    int uso_recurso_id { get; set; }
     
     public int interaccion_id { get; set; }
     [ForeignKey(nameof(interaccion_id))] public Interaccion_social InteraccionSocial { get; set; } = null!;
@@ -21,5 +23,5 @@ public class Uso_recurso
     
     public DateTime fecha_creacion { get; set; }
     
-    public DateTime fecha_eliminacion { get; set; }
+    public DateTime? fecha_eliminacion { get; set; }
 }

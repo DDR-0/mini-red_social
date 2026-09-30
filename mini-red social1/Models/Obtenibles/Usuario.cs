@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace mini_red_social1.Models;
 
-[Index(nameof(nombre), IsUnique = true)]
+[Index(nameof(correo), IsUnique = true)]
 public class Usuario
 {   [Key]
     public int user_id { get; set; }
@@ -32,7 +32,7 @@ public class Usuario
 
     public DateTime modificado_en { get; set; }
 
-    public DateTime borrado_en { get; set; }
-
-
+    public enum usuario_estado {Activo, Inactivo, Pendiente  }
+    public usuario_estado Estado  { get; set; }
+    
 }

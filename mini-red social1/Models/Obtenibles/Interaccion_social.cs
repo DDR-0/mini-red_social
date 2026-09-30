@@ -12,6 +12,7 @@ public class Interaccion_social
     [ForeignKey(nameof(interaccion_id))] public Tipo_Interaccion id_interaccion { get; set; } = null!;
     
     public int id_usuario { get; set; }
+    [ForeignKey(nameof(id_usuario))] public Usuario usuario_id { get; set; } = null!;
     
     public string titulo  { get; set; }
     
@@ -35,5 +36,5 @@ public class Interaccion_social
     
     public DateTime modificado_en { get; set; }
     
-    public DateTime borrado_en { get; set; }
+    public DateTime? borrado_en { get; set; }
 }

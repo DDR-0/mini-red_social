@@ -15,5 +15,5 @@ public class Roles
     
     public DateTime creado_en { get; set; }
     
-    public DateTime modificado_en { get; set; }
+    public DateTime? modificado_en { get; set; }
 }

@@ -17,13 +17,13 @@ public class Registro_auditoria
     
     public string id_entidad { get; set; }
     
-    public string direccion_ip { get; set; }
+    public string? direccion_ip { get; set; }
     
-    public string usuario_agente { get; set; }
+    public string? usuario_agente { get; set; }
     
-    public string payload_antes { get; set; }
+    public string? payload_antes { get; set; }
     
-    public string payload_despues { get; set; }
+    public string? payload_despues { get; set; }
     
     public DateTime creado_en { get; set; }
 }
