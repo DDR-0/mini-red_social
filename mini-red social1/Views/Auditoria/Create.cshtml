@@ -1,0 +1,69 @@
+@model mini_red_social1.Models.Registro_auditoria
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Registro_auditoria</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="id_usuario" class="control-label"></label>
+                <select asp-for="id_usuario" class ="form-control" asp-items="ViewBag.id_usuario"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="accion" class="control-label"></label>
+                <input asp-for="accion" class="form-control" />
+                <span asp-validation-for="accion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="entidad_afectada" class="control-label"></label>
+                <input asp-for="entidad_afectada" class="form-control" />
+                <span asp-validation-for="entidad_afectada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="id_entidad" class="control-label"></label>
+                <input asp-for="id_entidad" class="form-control" />
+                <span asp-validation-for="id_entidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="direccion_ip" class="control-label"></label>
+                <input asp-for="direccion_ip" class="form-control" />
+                <span asp-validation-for="direccion_ip" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="usuario_agente" class="control-label"></label>
+                <input asp-for="usuario_agente" class="form-control" />
+                <span asp-validation-for="usuario_agente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="payload_antes" class="control-label"></label>
+                <input asp-for="payload_antes" class="form-control" />
+                <span asp-validation-for="payload_antes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="payload_despues" class="control-label"></label>
+                <input asp-for="payload_despues" class="form-control" />
+                <span asp-validation-for="payload_despues" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="creado_en" class="control-label"></label>
+                <input asp-for="creado_en" class="form-control" />
+                <span asp-validation-for="creado_en" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

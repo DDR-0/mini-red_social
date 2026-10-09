@@ -1,0 +1,72 @@
+@model mini_red_social1.Models.Registro_auditoria
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Registro_auditoria</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.id_user)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.id_user.user_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.accion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.accion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.entidad_afectada)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.entidad_afectada)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.id_entidad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.id_entidad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.direccion_ip)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.direccion_ip)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.usuario_agente)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.usuario_agente)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.payload_antes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.payload_antes)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.payload_despues)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.payload_despues)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.creado_en)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.creado_en)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.auditlog_id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

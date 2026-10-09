@@ -1,0 +1,54 @@
+@model mini_red_social1.Models.Historial_interaccion
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Historial_interaccion</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.id_interaccion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.id_interaccion.interacciones_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.usuario_id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.usuario_id.user_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.estado_previo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.estado_previo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.estado_nuevo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.estado_nuevo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.motivo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.motivo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.creado_en)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.creado_en)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.historial_id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

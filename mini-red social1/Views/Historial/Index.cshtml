@@ -1,0 +1,65 @@
+@model IEnumerable<mini_red_social1.Models.Historial_interaccion>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id_interaccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.usuario_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado_previo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado_nuevo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.motivo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.creado_en)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_interaccion.interacciones_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.usuario_id.user_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado_previo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado_nuevo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.motivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.creado_en)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.historial_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.historial_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.historial_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

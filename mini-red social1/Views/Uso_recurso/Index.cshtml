@@ -1,0 +1,71 @@
+@model IEnumerable<mini_red_social1.Models.Uso_recurso>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.InteraccionSocial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recurso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_inicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_fin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado_recurso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_creacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_eliminacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.InteraccionSocial.interacciones_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recurso.recurso_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_inicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_fin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado_recurso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_creacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_eliminacion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.uso_recurso_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.uso_recurso_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.uso_recurso_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

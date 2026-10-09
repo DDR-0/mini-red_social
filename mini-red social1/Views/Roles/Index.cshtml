@@ -1,0 +1,59 @@
+@model IEnumerable<mini_red_social1.Models.Roles>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.activo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.creado_en)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.modificado_en)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.activo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.creado_en)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modificado_en)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.roles_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.roles_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.roles_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

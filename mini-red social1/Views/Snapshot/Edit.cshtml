@@ -1,0 +1,61 @@
+@model mini_red_social1.Models.Snapshot_diaria
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Snapshot_diaria</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="snapshot_id" />
+            <div class="form-group">
+                <label asp-for="fecha" class="control-label"></label>
+                <input asp-for="fecha" class="form-control" />
+                <span asp-validation-for="fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="usuarios_activos_totales" class="control-label"></label>
+                <input asp-for="usuarios_activos_totales" class="form-control" />
+                <span asp-validation-for="usuarios_activos_totales" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="interacciones_totales_creadas" class="control-label"></label>
+                <input asp-for="interacciones_totales_creadas" class="form-control" />
+                <span asp-validation-for="interacciones_totales_creadas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="interacciones_totales_resueltas" class="control-label"></label>
+                <input asp-for="interacciones_totales_resueltas" class="form-control" />
+                <span asp-validation-for="interacciones_totales_resueltas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="frecuencia_uso_recursos_usados" class="control-label"></label>
+                <input asp-for="frecuencia_uso_recursos_usados" class="form-control" />
+                <span asp-validation-for="frecuencia_uso_recursos_usados" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="metadatos" class="control-label"></label>
+                <input asp-for="metadatos" class="form-control" />
+                <span asp-validation-for="metadatos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="creado_en" class="control-label"></label>
+                <input asp-for="creado_en" class="form-control" />
+                <span asp-validation-for="creado_en" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

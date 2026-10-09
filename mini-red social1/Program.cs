@@ -6,20 +6,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<socialDBcontext>(options =>
+builder.Services.AddDbContext<SocialDBcontext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")
         ?? throw new InvalidOperationException(
             "Connection string 'DefaultConnection' was not found.")));
 
 var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
-{
-    using var scope = app.Services.CreateScope();
-    var database = scope.ServiceProvider.GetRequiredService<socialDBcontext>();
-    database.Database.EnsureCreated();
-}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

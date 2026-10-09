@@ -1,0 +1,84 @@
+@model mini_red_social1.Models.Interaccion_social
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Interaccion_social</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tipo_interaccion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tipo_interaccion.tipo_interaccion_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.usuario_id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.usuario_id.user_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.titulo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.titulo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EstadoActual)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EstadoActual)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NivelPrivacidad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NivelPrivacidad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.horario_inicio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.horario_inicio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.horario_fin)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.horario_fin)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.creado_en)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.creado_en)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.modificado_en)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.modificado_en)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.borrado_en)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.borrado_en)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.interacciones_id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,71 @@
+@model IEnumerable<mini_red_social1.Models.Snapshot_diaria>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.usuarios_activos_totales)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.interacciones_totales_creadas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.interacciones_totales_resueltas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.frecuencia_uso_recursos_usados)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.metadatos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.creado_en)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.usuarios_activos_totales)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.interacciones_totales_creadas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.interacciones_totales_resueltas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.frecuencia_uso_recursos_usados)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.metadatos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.creado_en)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.snapshot_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.snapshot_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.snapshot_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

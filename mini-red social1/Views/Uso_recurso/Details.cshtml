@@ -1,0 +1,60 @@
+@model mini_red_social1.Models.Uso_recurso
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Uso_recurso</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.InteraccionSocial)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InteraccionSocial.interacciones_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Recurso)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Recurso.recurso_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fecha_inicio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fecha_inicio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fecha_fin)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fecha_fin)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Estado_recurso)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Estado_recurso)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fecha_creacion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fecha_creacion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fecha_eliminacion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fecha_eliminacion)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.uso_recurso_id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
