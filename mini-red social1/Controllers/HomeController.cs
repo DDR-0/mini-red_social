@@ -29,6 +29,10 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult pantallas()
+    {
+        return View();
+    }
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error(int? id)
     {
