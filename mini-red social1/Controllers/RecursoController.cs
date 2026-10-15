@@ -46,7 +46,7 @@ namespace mini_red_social1.Controllers
         // GET: Recurso/Create
         public IActionResult Create()
         {
-            return View();
+            return View(new Recurso());
         }
 
         // POST: Recurso/Create
@@ -54,10 +54,11 @@ namespace mini_red_social1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("recurso_id,nombre,type,capacidad,creado_en,modificado_en")] Recurso recurso)
+        public async Task<IActionResult> Create([Bind("recurso_id,nombre,type,capacidad,modificado_en")] Recurso recurso)
         {
             if (ModelState.IsValid)
             {
+                recurso.creado_en = DateTime.Now;
                 _context.Add(recurso);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

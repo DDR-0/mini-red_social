@@ -25,5 +25,5 @@ public class Registro_auditoria
     
     public string? payload_despues { get; set; }
     
-    public DateTime creado_en { get; set; }
+    public DateTime creado_en { get; set; }  = DateTime.Now;
 }

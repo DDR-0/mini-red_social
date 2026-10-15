@@ -93,7 +93,7 @@ namespace mini_red_social1.Migrations
                     b.Property<int>("id_usuario")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("modificado_en")
+                    b.Property<DateTime?>("modificado_en")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("tipo_interaccion_id")
@@ -127,7 +127,7 @@ namespace mini_red_social1.Migrations
                     b.Property<DateTime>("creado_en")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("modificado_en")
+                    b.Property<DateTime?>("modificado_en")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("nombre")
@@ -275,7 +275,7 @@ namespace mini_red_social1.Migrations
                     b.Property<bool>("esta_activo")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("modificado_en")
+                    b.Property<DateTime?>("modificado_en")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("nombre")
@@ -307,7 +307,7 @@ namespace mini_red_social1.Migrations
                     b.Property<DateTime?>("fecha_eliminacion")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("fecha_fin")
+                    b.Property<DateTime?>("fecha_fin")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("fecha_inicio")
@@ -359,7 +359,7 @@ namespace mini_red_social1.Migrations
                     b.Property<int>("estado_usuario")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("modificado_en")
+                    b.Property<DateTime?>("modificado_en")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("nombre")

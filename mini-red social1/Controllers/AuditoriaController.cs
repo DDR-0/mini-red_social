@@ -49,7 +49,7 @@ namespace mini_red_social1.Controllers
         public IActionResult Create()
         {
             ViewData["id_usuario"] = new SelectList(_context.Usuarios, "user_id", "user_id");
-            return View();
+            return View(new Registro_auditoria());
         }
 
         // POST: Auditoria/Create
@@ -57,10 +57,11 @@ namespace mini_red_social1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("auditlog_id,id_usuario,accion,entidad_afectada,id_entidad,direccion_ip,usuario_agente,payload_antes,payload_despues,creado_en")] Registro_auditoria registro_auditoria)
+        public async Task<IActionResult> Create([Bind("auditlog_id,id_usuario,accion,entidad_afectada,id_entidad,direccion_ip,usuario_agente,payload_antes,payload_despues")] Registro_auditoria registro_auditoria)
         {
             if (ModelState.IsValid)
             {
+                registro_auditoria.creado_en = DateTime.Now;
                 _context.Add(registro_auditoria);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

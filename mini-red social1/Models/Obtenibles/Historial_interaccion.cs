@@ -19,6 +19,6 @@ public class Historial_interaccion
 
     public string motivo { get; set; }
 
-    public DateTime creado_en { get; set; }
+    public DateTime creado_en { get; set; }  = DateTime.Now;
     
 }

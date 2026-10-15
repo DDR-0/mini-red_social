@@ -46,7 +46,7 @@ namespace mini_red_social1.Controllers
         // GET: Roles/Create
         public IActionResult Create()
         {
-            return View();
+            return View(new Roles());
         }
 
         // POST: Roles/Create
@@ -54,10 +54,11 @@ namespace mini_red_social1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("roles_id,nombre,descripcion,activo,creado_en,modificado_en")] Roles roles)
+        public async Task<IActionResult> Create([Bind("roles_id,nombre,descripcion,activo,modificado_en")] Roles roles)
         {
             if (ModelState.IsValid)
             {
+                roles.creado_en = DateTime.Now;
                 _context.Add(roles);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

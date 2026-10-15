@@ -45,27 +45,27 @@
             </div>
             <div class="form-group">
                 <label asp-for="estado_usuario" class="control-label"></label>
-                <select asp-for="estado_usuario" class="form-control"></select>
+                <select asp-for="estado_usuario" class="form-control" asp-items="Html.GetEnumSelectList<Usuario.EstadoUsuario>()"></select>
                 <span asp-validation-for="estado_usuario" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="visiblity" class="control-label"></label>
-                <select asp-for="visiblity" class="form-control"></select>
+                <select asp-for="visiblity" class="form-control" asp-items="Html.GetEnumSelectList<Usuario.visibilidad>()"></select>
                 <span asp-validation-for="visiblity" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="creado_en" class="control-label"></label>
-                <input asp-for="creado_en" class="form-control" />
+                <input asp-for="creado_en" type="datetime-local" class="form-control" />
                 <span asp-validation-for="creado_en" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="modificado_en" class="control-label"></label>
-                <input asp-for="modificado_en" class="form-control" />
+                <input asp-for="modificado_en" type="datetime-local" class="form-control" />
                 <span asp-validation-for="modificado_en" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="estado_cuenta" class="control-label"></label>
-                <select asp-for="estado_cuenta" class="form-control"></select>
+                <select asp-for="estado_cuenta" class="form-control" asp-items="Html.GetEnumSelectList<Usuario.EstadoCuenta>()"></select>
                 <span asp-validation-for="estado_cuenta" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -78,4 +78,3 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-

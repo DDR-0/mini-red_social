@@ -14,14 +14,14 @@ public class Uso_recurso
     public int recurso_id { get; set; }
     [ForeignKey(nameof(recurso_id))] public Recurso Recurso { get; set; } = null!;
     
-    public DateTime fecha_inicio { get; set; }
+    public DateTime fecha_inicio { get; set; } = DateTime.Now;
     
-    public DateTime fecha_fin { get; set; }
+    public DateTime? fecha_fin { get; set; }
     
     public enum estado {reservado, confirmado, lanzado, cancelado}
     public estado Estado_recurso { get; set; }
     
-    public DateTime fecha_creacion { get; set; }
+    public DateTime fecha_creacion { get; set; } = DateTime.Now;
     
     public DateTime? fecha_eliminacion { get; set; }
 }

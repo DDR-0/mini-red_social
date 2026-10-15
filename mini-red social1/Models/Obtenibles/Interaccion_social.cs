@@ -34,9 +34,9 @@ public class Interaccion_social : IValidatableObject
     public DateTime? horario_fin { get; set; }
     public string? horario_fin_en => horario_fin?.ToString("HH:mm:ss");
     
-    public DateTime creado_en { get; set; }
+    public DateTime creado_en { get; set; } = DateTime.Now;
     
-    public DateTime modificado_en { get; set; }
+    public DateTime? modificado_en { get; set; }
     
     public DateTime? borrado_en { get; set; }
 

@@ -32,37 +32,37 @@
             </div>
             <div class="form-group">
                 <label asp-for="EstadoActual" class="control-label"></label>
-                <select asp-for="EstadoActual" class="form-control"></select>
+                <select asp-for="EstadoActual" class="form-control" asp-items="Html.GetEnumSelectList<Interaccion_social.estado_actual>()"></select>
                 <span asp-validation-for="EstadoActual" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="NivelPrivacidad" class="control-label"></label>
-                <select asp-for="NivelPrivacidad" class="form-control"></select>
+                <select asp-for="NivelPrivacidad" class="form-control" asp-items="Html.GetEnumSelectList<Interaccion_social.nivel_privacidad>()"></select>
                 <span asp-validation-for="NivelPrivacidad" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="horario_inicio" class="control-label"></label>
-                <input asp-for="horario_inicio" class="form-control" />
+                <input asp-for="horario_inicio" type="datetime-local" class="form-control" />
                 <span asp-validation-for="horario_inicio" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="horario_fin" class="control-label"></label>
-                <input asp-for="horario_fin" class="form-control" />
+                <input asp-for="horario_fin" type="datetime-local" class="form-control" />
                 <span asp-validation-for="horario_fin" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="creado_en" class="control-label"></label>
-                <input asp-for="creado_en" class="form-control" />
+                <input asp-for="creado_en" type="datetime-local" class="form-control" readonly />
                 <span asp-validation-for="creado_en" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="modificado_en" class="control-label"></label>
-                <input asp-for="modificado_en" class="form-control" />
+                <input asp-for="modificado_en" type="datetime-local" class="form-control" />
                 <span asp-validation-for="modificado_en" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="borrado_en" class="control-label"></label>
-                <input asp-for="borrado_en" class="form-control" />
+                <input asp-for="borrado_en" type="datetime-local" class="form-control" />
                 <span asp-validation-for="borrado_en" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -75,4 +75,3 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-

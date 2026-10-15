@@ -49,7 +49,7 @@ namespace mini_red_social1.Controllers
         public IActionResult Create()
         {
             ViewData["rol_id"] = new SelectList(_context.Roles, "roles_id", "roles_id");
-            return View();
+            return View(new Usuario());
         }
 
         // POST: Usuario/Create
@@ -57,10 +57,11 @@ namespace mini_red_social1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("user_id,rol_id,nombre,apellido,correo,descripcion,contrasena_hash,estado_usuario,visiblity,creado_en,modificado_en,estado_cuenta")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("user_id,rol_id,nombre,apellido,correo,descripcion,contrasena_hash,estado_usuario,visiblity,modificado_en,estado_cuenta")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
+                usuario.creado_en = DateTime.Now;
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

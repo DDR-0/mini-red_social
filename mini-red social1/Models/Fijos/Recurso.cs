@@ -13,7 +13,7 @@ public class Recurso
     
     public int capacidad  { get; set; }
     
-    public DateTime creado_en { get; set; }
+    public DateTime creado_en { get; set; } = DateTime.Now;
     
-    public DateTime modificado_en { get; set; }
+    public DateTime? modificado_en { get; set; }
 }

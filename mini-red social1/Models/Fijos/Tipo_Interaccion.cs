@@ -14,9 +14,9 @@ public class Tipo_Interaccion
     
     public bool esta_activo { get; set; }
 
-    public DateTime creado_en { get; set; }
+    public DateTime creado_en { get; set; } = DateTime.Now;
     
-    public DateTime modificado_en { get; set; }
+    public DateTime? modificado_en { get; set; }
     
     public DateTime? borrado_en { get; set; }
 }

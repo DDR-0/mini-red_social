@@ -46,7 +46,7 @@ namespace mini_red_social1.Controllers
         // GET: Tipo_interaccion/Create
         public IActionResult Create()
         {
-            return View();
+            return View(new Tipo_Interaccion());
         }
 
         // POST: Tipo_interaccion/Create
@@ -54,10 +54,11 @@ namespace mini_red_social1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("tipo_interaccion_id,nombre,descripcion,requiere_recurso,esta_activo,creado_en,modificado_en,borrado_en")] Tipo_Interaccion tipo_Interaccion)
+        public async Task<IActionResult> Create([Bind("tipo_interaccion_id,nombre,descripcion,requiere_recurso,esta_activo,modificado_en,borrado_en")] Tipo_Interaccion tipo_Interaccion)
         {
             if (ModelState.IsValid)
             {
+                tipo_Interaccion.creado_en = DateTime.Now;
                 _context.Add(tipo_Interaccion);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

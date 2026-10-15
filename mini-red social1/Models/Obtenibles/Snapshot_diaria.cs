@@ -22,5 +22,5 @@ public class Snapshot_diaria
     
     public string metadatos { get; set; }
     
-    public DateTime creado_en { get; set; }
+    public DateTime creado_en { get; set; }  = DateTime.Now;
 }

@@ -35,17 +35,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="creado_en" class="control-label"></label>
-                <input asp-for="creado_en" class="form-control" />
+                <input asp-for="creado_en" type="datetime-local" class="form-control" />
                 <span asp-validation-for="creado_en" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="modificado_en" class="control-label"></label>
-                <input asp-for="modificado_en" class="form-control" />
+                <input asp-for="modificado_en" type="datetime-local" class="form-control" />
                 <span asp-validation-for="modificado_en" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="borrado_en" class="control-label"></label>
-                <input asp-for="borrado_en" class="form-control" />
+                <input asp-for="borrado_en" type="datetime-local" class="form-control" />
                 <span asp-validation-for="borrado_en" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -58,4 +58,3 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-

@@ -27,10 +27,10 @@ public class Usuario
 
     public enum visibilidad { publico, privado }
     public visibilidad visiblity { get; set; }
-    
-    public DateTime creado_en { get; set; }
 
-    public DateTime modificado_en { get; set; }
+    public DateTime creado_en { get; set; } = DateTime.Now;
+
+    public DateTime? modificado_en { get; set; } = DateTime.Now;
     
     public enum EstadoCuenta { Activa, Suspendida }
     public EstadoCuenta estado_cuenta { get; set; }

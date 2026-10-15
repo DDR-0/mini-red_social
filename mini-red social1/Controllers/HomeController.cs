@@ -36,8 +36,8 @@ public class HomeController : Controller
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error(int? id)
     {
-        // El código llega desde UseStatusCodePagesWithReExecute para mostrar
-        // el mensaje correcto cuando la ruta solicitada no existe
+        // El código llega desde UseStatusCodePagesWithReExecute para mostrar el mensaje correcto cuando la ruta solicitada no existe
+        
         var statusCode = id ?? StatusCodes.Status500InternalServerError;
         Response.StatusCode = statusCode;
         ViewData["StatusCode"] = statusCode;

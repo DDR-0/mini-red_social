@@ -13,7 +13,7 @@ public class Roles
 
     public bool activo { get; set; }
     
-    public DateTime creado_en { get; set; }
+    public DateTime creado_en { get; set; } = DateTime.Now;
     
     public DateTime? modificado_en { get; set; }
 }

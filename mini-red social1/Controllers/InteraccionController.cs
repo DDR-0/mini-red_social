@@ -51,7 +51,7 @@ namespace mini_red_social1.Controllers
         {
             ViewData["tipo_interaccion_id"] = new SelectList(_context.TiposInteraccion, "tipo_interaccion_id", "tipo_interaccion_id");
             ViewData["id_usuario"] = new SelectList(_context.Usuarios, "user_id", "user_id");
-            return View();
+            return View(new Interaccion_social());
         }
 
         // POST: Interaccion/Create
@@ -59,10 +59,11 @@ namespace mini_red_social1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("interacciones_id,tipo_interaccion_id,id_usuario,titulo,descripcion,EstadoActual,NivelPrivacidad,horario_inicio,horario_fin,creado_en,modificado_en,borrado_en")] Interaccion_social interaccion_social)
+        public async Task<IActionResult> Create([Bind("interacciones_id,tipo_interaccion_id,id_usuario,titulo,descripcion,EstadoActual,NivelPrivacidad,horario_inicio,horario_fin,modificado_en,borrado_en")] Interaccion_social interaccion_social)
         {
             if (ModelState.IsValid)
             {
+                interaccion_social.creado_en = DateTime.Now;
                 _context.Add(interaccion_social);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

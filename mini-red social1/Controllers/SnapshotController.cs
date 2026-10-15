@@ -46,7 +46,7 @@ namespace mini_red_social1.Controllers
         // GET: Snapshot/Create
         public IActionResult Create()
         {
-            return View();
+            return View(new Snapshot_diaria());
         }
 
         // POST: Snapshot/Create
@@ -54,10 +54,11 @@ namespace mini_red_social1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("snapshot_id,fecha,usuarios_activos_totales,interacciones_totales_creadas,interacciones_totales_resueltas,frecuencia_uso_recursos_usados,metadatos,creado_en")] Snapshot_diaria snapshot_diaria)
+        public async Task<IActionResult> Create([Bind("snapshot_id,fecha,usuarios_activos_totales,interacciones_totales_creadas,interacciones_totales_resueltas,frecuencia_uso_recursos_usados,metadatos")] Snapshot_diaria snapshot_diaria)
         {
             if (ModelState.IsValid)
             {
+                snapshot_diaria.creado_en = DateTime.Now;
                 _context.Add(snapshot_diaria);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

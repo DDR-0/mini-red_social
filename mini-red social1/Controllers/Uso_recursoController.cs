@@ -51,7 +51,7 @@ namespace mini_red_social1.Controllers
         {
             ViewData["interaccion_id"] = new SelectList(_context.Interacciones, "interacciones_id", "interacciones_id");
             ViewData["recurso_id"] = new SelectList(_context.Recursos, "recurso_id", "recurso_id");
-            return View();
+            return View(new Uso_recurso());
         }
 
         // POST: Uso_recurso/Create
@@ -59,10 +59,11 @@ namespace mini_red_social1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("uso_recurso_id,interaccion_id,recurso_id,fecha_inicio,fecha_fin,Estado_recurso,fecha_creacion,fecha_eliminacion")] Uso_recurso uso_recurso)
+        public async Task<IActionResult> Create([Bind("uso_recurso_id,interaccion_id,recurso_id,fecha_inicio,fecha_fin,Estado_recurso,fecha_eliminacion")] Uso_recurso uso_recurso)
         {
             if (ModelState.IsValid)
             {
+                uso_recurso.fecha_creacion = DateTime.Now;
                 _context.Add(uso_recurso);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

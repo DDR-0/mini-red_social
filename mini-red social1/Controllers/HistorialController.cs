@@ -51,7 +51,7 @@ namespace mini_red_social1.Controllers
         {
             ViewData["interaccion_id"] = new SelectList(_context.Interacciones, "interacciones_id", "interacciones_id");
             ViewData["cambio_por_usuario"] = new SelectList(_context.Usuarios, "user_id", "user_id");
-            return View();
+            return View(new Historial_interaccion());
         }
 
         // POST: Historial/Create
@@ -59,10 +59,11 @@ namespace mini_red_social1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("historial_id,interaccion_id,cambio_por_usuario,estado_previo,estado_nuevo,motivo,creado_en")] Historial_interaccion historial_interaccion)
+        public async Task<IActionResult> Create([Bind("historial_id,interaccion_id,cambio_por_usuario,estado_previo,estado_nuevo,motivo")] Historial_interaccion historial_interaccion)
         {
             if (ModelState.IsValid)
             {
+                historial_interaccion.creado_en = DateTime.Now;
                 _context.Add(historial_interaccion);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
