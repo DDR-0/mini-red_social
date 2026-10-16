@@ -17,22 +17,19 @@ public abstract class ApiCrudController<TEntity> : ControllerBase where TEntity 
         _context = context;
     }
 
-    [HttpGet]
-    public async Task<IActionResult> GetAll()
+    protected async Task<IActionResult> GetAllEntities()
     {
         var entities = await _context.Set<TEntity>().AsNoTracking().ToListAsync();
         return Ok(entities.Select(ToResponse));
     }
 
-    [HttpGet("{id:int}")]
-    public async Task<IActionResult> GetById(int id)
+    protected async Task<IActionResult> GetEntityById(int id)
     {
         var entity = await _context.Set<TEntity>().FindAsync(id);
         return entity == null ? NotFound() : Ok(ToResponse(entity));
     }
 
-    [HttpPost]
-    public async Task<IActionResult> Create([FromBody] TEntity entity)
+    protected async Task<IActionResult> CreateEntity(TEntity entity)
     {
         ClearNavigationProperties(entity);
         SetCreationTimestamp(entity);
@@ -41,11 +38,10 @@ public abstract class ApiCrudController<TEntity> : ControllerBase where TEntity 
         await _context.SaveChangesAsync();
 
         var id = GetEntityId(entity);
-        return CreatedAtAction(nameof(GetById), new { id }, ToResponse(entity));
+        return CreatedAtAction("GetById", new { id }, ToResponse(entity));
     }
 
-    [HttpPut("{id:int}")]
-    public async Task<IActionResult> Replace(int id, [FromBody] TEntity entity)
+    protected async Task<IActionResult> ReplaceEntity(int id, TEntity entity)
     {
         var entityId = GetEntityId(entity);
         if (entityId != 0 && entityId != id)
@@ -75,8 +71,7 @@ public abstract class ApiCrudController<TEntity> : ControllerBase where TEntity 
         return NoContent();
     }
 
-    [HttpPatch("{id:int}")]
-    public async Task<IActionResult> Patch(int id, [FromBody] JsonElement changes)
+    protected async Task<IActionResult> PatchEntity(int id, JsonElement changes)
     {
         if (changes.ValueKind != JsonValueKind.Object || !changes.EnumerateObject().Any())
         {
@@ -94,8 +89,8 @@ public abstract class ApiCrudController<TEntity> : ControllerBase where TEntity 
 
         foreach (var change in changes.EnumerateObject())
         {
-            var property = entry.Metadata.GetProperties().FirstOrDefault(
-                candidate => string.Equals(candidate.Name, change.Name, StringComparison.OrdinalIgnoreCase));
+            var property = entry.Metadata.GetProperties().FirstOrDefault(candidate =>
+                string.Equals(candidate.Name, change.Name, StringComparison.OrdinalIgnoreCase));
 
             if (property == null || property.Name == primaryKey.Name || property.PropertyInfo?.CanWrite != true)
             {
@@ -124,8 +119,7 @@ public abstract class ApiCrudController<TEntity> : ControllerBase where TEntity 
         return NoContent();
     }
 
-    [HttpDelete("{id:int}")]
-    public async Task<IActionResult> Delete(int id)
+    protected async Task<IActionResult> DeleteEntity(int id)
     {
         var entity = await _context.Set<TEntity>().FindAsync(id);
         if (entity == null)
@@ -152,7 +146,8 @@ public abstract class ApiCrudController<TEntity> : ControllerBase where TEntity 
     private static IProperty GetPrimaryKey(IEntityType entityType)
     {
         return entityType.FindPrimaryKey()?.Properties.Single()
-            ?? throw new InvalidOperationException($"La entidad {typeof(TEntity).Name} no tiene una clave primaria simple.");
+               ?? throw new InvalidOperationException(
+                   $"La entidad {typeof(TEntity).Name} no tiene una clave primaria simple.");
     }
 
     private int GetEntityId(TEntity entity)
@@ -169,7 +164,8 @@ public abstract class ApiCrudController<TEntity> : ControllerBase where TEntity 
         property?.SetValue(entity, DateTime.Now);
     }
 
-    private static void PreserveCreationTimestamp(Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry<TEntity> entry)
+    private static void PreserveCreationTimestamp(
+        Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry<TEntity> entry)
     {
         var propertyName = entry.Metadata.FindProperty("creado_en") != null
             ? "creado_en"
