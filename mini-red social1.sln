@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mini-red social1", "mini-red social1\mini-red social1.csproj", "{319F21B6-F1A3-4F75-B2B3-48485FEACF64}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CAPTURAS", "CAPTURAS", "{EC014CB1-558D-4934-893F-68D288254449}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CAPTURAS", "CAPTURAS", "{E57B571D-A164-42C5-8B1A-FE74505EF554}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
