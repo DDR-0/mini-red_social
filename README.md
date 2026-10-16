@@ -16,10 +16,6 @@ Core y registra las migraciones aplicadas en `__EFMigrationsHistory`.
    ejecutarlo como administrador de SQL Server para crear un login de Windows con
    permisos de lectura y escritura sobre la base.
 
-Se usa autenticación de Windows y no se incluye ninguna contraseña en el repositorio.
-El script de permisos crea el login y usuario para la cuenta indicada; no otorga
-permisos de administrador ni permisos para modificar el esquema.
-
 ## Conectar la aplicación desde VS Code
 
 Abrir una terminal de PowerShell en esta carpeta (`mini-red social1`) y configurar
