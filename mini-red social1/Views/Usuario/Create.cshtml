@@ -11,11 +11,16 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="rol_id" class="control-label"></label>
                 <select asp-for="rol_id" class ="form-control" asp-items="ViewBag.rol_id"></select>
+                <span asp-validation-for="rol_id" class="text-danger"></span>
             </div>
+
+            @section Scripts {
+                @{ await Html.PartialAsync("_ValidationScriptsPartial"); }
+            }
             <div class="form-group">
                 <label asp-for="nombre" class="control-label"></label>
                 <input asp-for="nombre" class="form-control" />

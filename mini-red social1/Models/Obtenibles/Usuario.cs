@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace mini_red_social1.Models;
 
@@ -9,8 +10,11 @@ public class Usuario
 {   [Key]
     public int user_id { get; set; }
     
+    [Range(1, int.MaxValue, ErrorMessage = "Selecciona un rol válido.")]
     public int rol_id { get; set; }
-    [ForeignKey(nameof(rol_id))] public Roles role { get; set; } = null!;
+    [ForeignKey(nameof(rol_id))]
+    [ValidateNever]
+    public Roles role { get; set; } = null!;
     
     public string nombre { get; set; } = string.Empty;
     

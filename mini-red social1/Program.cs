@@ -62,6 +62,8 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.MapControllers();
+
 app.MapStaticAssets();
 
 app.MapControllerRoute(
