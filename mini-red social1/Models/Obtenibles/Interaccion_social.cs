@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace mini_red_social1.Models;
 
@@ -9,10 +10,14 @@ public class Interaccion_social : IValidatableObject
     public int interacciones_id { get; set; }
     
     public int tipo_interaccion_id { get; set; }
-    [ForeignKey(nameof(tipo_interaccion_id))] public Tipo_Interaccion tipo_interaccion { get; set; } = null!;
+    [ForeignKey(nameof(tipo_interaccion_id))]
+    [ValidateNever]
+    public Tipo_Interaccion tipo_interaccion { get; set; } = null!;
     
     public int id_usuario { get; set; }
-    [ForeignKey(nameof(id_usuario))] public Usuario usuario_id { get; set; } = null!;
+    [ForeignKey(nameof(id_usuario))]
+    [ValidateNever]
+    public Usuario usuario_id { get; set; } = null!;
     
     [MaxLength(150)]
     public string titulo  { get; set; } = string.Empty;

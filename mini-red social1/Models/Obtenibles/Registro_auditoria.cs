@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Nodes;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace mini_red_social1.Models;
 
@@ -9,7 +10,9 @@ public class Registro_auditoria
     public int auditlog_id { get; set; }
     
     public int id_usuario { get; set; }
-    [ForeignKey(nameof(id_usuario))] public Usuario id_user { get; set; } = null!;
+    [ForeignKey(nameof(id_usuario))]
+    [ValidateNever]
+    public Usuario id_user { get; set; } = null!;
     
     public string accion { get; set; }
     

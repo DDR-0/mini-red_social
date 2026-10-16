@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace mini_red_social1.Models;
 
@@ -9,10 +10,14 @@ public class Uso_recurso
     public int uso_recurso_id { get; set; }
     
     public int interaccion_id { get; set; }
-    [ForeignKey(nameof(interaccion_id))] public Interaccion_social InteraccionSocial { get; set; } = null!;
+    [ForeignKey(nameof(interaccion_id))]
+    [ValidateNever]
+    public Interaccion_social InteraccionSocial { get; set; } = null!;
     
     public int recurso_id { get; set; }
-    [ForeignKey(nameof(recurso_id))] public Recurso Recurso { get; set; } = null!;
+    [ForeignKey(nameof(recurso_id))]
+    [ValidateNever]
+    public Recurso Recurso { get; set; } = null!;
     
     public DateTime fecha_inicio { get; set; } = DateTime.Now;
     
