@@ -52,3 +52,69 @@ lectura y escritura. Para aplicar futuras migraciones desde la aplicación o EF 
 la cuenta también necesita permisos de DDL; el profesor puede ejecutar las
 migraciones con una cuenta administradora en vez de conceder esos permisos a la
 cuenta normal de la aplicación.
+
+## Instalar y compilar en otro equipo
+
+### Requisitos
+
+- Windows 10/11.
+- .NET 9 SDK (`9.0.x`).
+- SQL Server local (por ejemplo, Express o Developer).
+- VS Code es opcional. Se recomiendan las extensiones **C# Dev Kit** y **SQL Server (mssql)**.
+- Postman, Insomnia o la extensión **REST Client** para probar solicitudes que escriben datos.
+
+Verificar el SDK instalado:
+
+```powershell
+dotnet --list-sdks
+```
+
+Clonar el repositorio y entrar a la carpeta que contiene el archivo `.csproj`:
+
+```powershell
+git clone https://github.com/DDR-0/mini-red_social.git
+cd ".\mini-red_social\mini-red social1"
+```
+
+Restaurar los paquetes NuGet y compilar:
+
+```powershell
+dotnet restore ".\mini-red social1.csproj"
+dotnet build ".\mini-red social1.csproj"
+```
+
+No es necesario instalar las librerías una por una: `dotnet restore` las descarga desde el proyecto. Las dependencias directas actuales son:
+
+| Paquete | Versión |
+|---|---:|
+| `Aspire.Microsoft.EntityFrameworkCore.SqlServer` | 9.1.0 |
+| `Microsoft.AspNetCore.Identity.EntityFrameworkCore` | 9.0.0 |
+| `Microsoft.EntityFrameworkCore.Design` | 9.0.20 |
+| `Microsoft.EntityFrameworkCore.Sqlite` | 9.0.20 |
+| `Microsoft.EntityFrameworkCore.SqlServer` | 9.0.20 |
+| `Microsoft.EntityFrameworkCore.Tools` | 9.0.20 |
+| `Microsoft.VisualStudio.Web.CodeGeneration.Design` | 9.0.0 |
+
+ASP.NET Core viene incluido con el SDK y no se instala aparte. Después de crear la base de datos con los scripts anteriores, configurar User Secrets desde la carpeta del proyecto y ejecutar:
+
+```powershell
+dotnet user-secrets init
+dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Server=localhost\SQLEXPRESS;Database=MiniRedSocialDb;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true"
+dotnet run --launch-profile https
+```
+
+Reemplazar `localhost\SQLEXPRESS` por el nombre de la instancia SQL Server del equipo. La aplicación queda disponible en `https://localhost:7123`.
+
+### Herramienta opcional para migraciones
+
+No hace falta instalar EF CLI para ejecutar la aplicación ni para preparar la base usando los scripts SQL incluidos. Solo si se van a crear o administrar migraciones desde la terminal:
+
+```powershell
+dotnet tool install --global dotnet-ef --version 9.0.20
+```
+
+Si `dotnet-ef` ya está instalado, actualizarlo a esa versión:
+
+```powershell
+dotnet tool update --global dotnet-ef --version 9.0.20
+```
