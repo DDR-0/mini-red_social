@@ -11,8 +11,7 @@ Core y registra las migraciones aplicadas en `__EFMigrationsHistory`.
 2. Localizar la carpeta Scripts, donde se encuentran los archivos SQL y 
    ejecutar `01_create_database.sql`.
 4. Ejecutar `02_schema_migrations.sql`. El script selecciona `MiniRedSocialDb` y crea
-   las nueve tablas, claves foráneas e índices de las migraciones actuales. Es
-   idempotente respecto a esas migraciones; no borra ni reinicia los datos.
+   las nueve tablas, claves foráneas e índices de las migraciones actuales.
 5. Opcionalmente, editar el nombre de cuenta en `03_grant_windows_access.sql` y
    ejecutarlo como administrador de SQL Server para crear un login de Windows con
    permisos de lectura y escritura sobre la base.
