@@ -8,7 +8,7 @@ Core y registra las migraciones aplicadas en `__EFMigrationsHistory`.
 
 1. Abrir SQL Server Management Studio o la extensión **SQL Server (mssql)** de VS Code
    y conectarse a la instancia local con una cuenta que pueda crear bases de datos.
-2. Ejecutar `01_create_database.sql`.
+2. Buscar la carpeta Scripts donde estan todos los archivos sql y ejecutar `01_create_database.sql`.
 3. Ejecutar `02_schema_migrations.sql`. El script selecciona `MiniRedSocialDb` y crea
    las nueve tablas, claves foráneas e índices de las migraciones actuales. Es
    idempotente respecto a esas migraciones; no borra ni reinicia los datos.
@@ -44,8 +44,8 @@ dotnet run --launch-profile https
 
 La configuración actual escucha en `https://localhost:7123`. La API y las vistas
 MVC usan la misma base de datos. En VS Code se puede inspeccionar la base con la
-extensión **SQL Server (mssql)** y probar la API con **REST Client**, Postman o
-Insomnia, por ejemplo `GET https://localhost:7123/api/recursos`.
+extensión **SQL Server (mssql)** y probar la API con Postman 
+por ejemplo `GET https://localhost:7123/api/recursos`.
 
 Los endpoints de escritura necesitan que la aplicación se conecte con permisos de
 lectura y escritura. Para aplicar futuras migraciones desde la aplicación o EF Core,
